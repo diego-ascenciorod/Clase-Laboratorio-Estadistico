@@ -1,0 +1,174 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+#tableta
+datos = pd.read_csv("bateria_tableta.txt")
+x = np.array(datos["carga"])
+y = np.array(datos["duracion"])
+
+#Orden1 
+X = np.array([x]).T
+lr = LinearRegression()
+lr.fit(X, y)
+tscore1 = lr.score(X, y)
+print("Batería grado 1")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",tscore1)
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Batería grado 1")
+plt.grid(True)
+plt.show()
+
+#Orden3
+X = np.array([x, x**2, x**3]).T
+lr = LinearRegression()
+lr.fit(X, y)
+tscore3 = lr.score(X, y)
+print("Batería grado 3")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",tscore3)
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg, xg**2, xg**3]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Batería grado 3")
+plt.grid(True)
+plt.show()
+
+#Orden5
+X = np.array([x, x**2, x**3, x**4, x**5]).T
+lr = LinearRegression()
+lr.fit(X, y)
+tscore5 = lr.score(X, y)
+print("Batería grado 5")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",tscore5)
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg, xg**2, xg**3, xg**4, xg**5]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Batería grado 5")
+plt.grid(True)
+plt.show()
+
+#Orden7
+X = np.array([x, x**2, x**3, x**4, x**5, x**6, x**7]).T
+lr = LinearRegression()
+lr.fit(X, y)
+tscore7 = lr.score(X, y)
+print("Batería grado 7")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",tscore7)
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg, xg**2, xg**3, xg**4, xg**5, xg**6, xg**7]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Batería grado 7")
+plt.grid(True)
+plt.show()
+
+#Salarios
+datos = pd.read_csv("Salarios_minimos.csv")
+x = np.array(datos.iloc[:,0])
+y = np.array(datos.iloc[:,1])
+
+#Orden1
+X = np.array([x]).T
+lr = LinearRegression()
+lr.fit(X, y)
+sascore1 = lr.score(X, y)
+print("Salarios grado 1")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",sascore1)
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Salarios grado 1")
+plt.grid(True)
+plt.show()
+
+#Orden3
+X = np.array([x, x**2, x**3]).T
+lr = LinearRegression()
+lr.fit(X, y)
+sascore3 = lr.score(X, y)
+print("Salarios grado 3")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",sascore3)
+
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg, xg**2, xg**3]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Salarios grado 3")
+plt.grid(True)
+plt.show()
+
+#Orden5
+X = np.array([x, x**2, x**3, x**4, x**5]).T
+lr = LinearRegression()
+lr.fit(X, y)
+sascore5 = lr.score(X, y)
+print("Salarios grado 5")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",sascore5)
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg, xg**2, xg**3, xg**4, xg**5]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Salarios grado 5")
+plt.grid(True)
+plt.show()
+
+#Orden7
+X = np.array([x, x**2, x**3, x**4, x**5, x**6, x**7]).T
+lr = LinearRegression()
+lr.fit(X, y)
+sascore7 = lr.score(X, y)
+print("Salarios grado 7")
+print(lr.intercept_)
+print(lr.coef_)
+print("R2,",sascore7)
+
+xg = np.linspace(min(x), max(x), 200)
+Xg = np.array([xg, xg**2, xg**3, xg**4, xg**5, xg**6, xg**7]).T
+yg = lr.predict(Xg)
+
+plt.scatter(x, y)
+plt.plot(xg, yg)
+plt.title("Salarios grado 7")
+plt.grid(True)
+plt.show()
+
